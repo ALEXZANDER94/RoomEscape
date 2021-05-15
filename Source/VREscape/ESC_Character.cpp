@@ -40,7 +40,7 @@ void AESC_Character::BeginPlay()
 		LeftHand->SetOwner(this);
 		LeftHand->SetHand(EControllerHand::Left);
 	}
-	
+	LeftHand->PairController(RightHand);
 }
 
 // Called every frame
@@ -63,6 +63,9 @@ void AESC_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AESC_Character::MoveForward);
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AESC_Character::MoveRight);
+
+	PlayerInputComponent->BindAction(TEXT("SearchRight"), EInputEvent::IE_Pressed, this, &AESC_Character::SearchRight);
+	PlayerInputComponent->BindAction(TEXT("SearchLeft"), EInputEvent::IE_Pressed, this, &AESC_Character::SearchLeft);
 
 }
 

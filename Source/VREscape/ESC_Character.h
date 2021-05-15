@@ -27,6 +27,8 @@ private:
 
 	void MoveForward(float value);
 	void MoveRight(float value);
+	void SearchRight() { RightHand->Search(); }
+	void SearchLeft() { LeftHand->Search(); }
 
 
 public:
